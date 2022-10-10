@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "addressapi"
+version = "0.1.0"
+description = ""
+authors = ["Simon Woodward <simon.woodward@zoopla.co.uk>"]
+readme = "README.md"
+packages = [{include = "addressapi", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+black = "^22.10.0"
+pyproject-flake8 = "^5.0.4.post1"
+mypy = "^0.982"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
