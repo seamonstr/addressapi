@@ -11,8 +11,43 @@ python = "^3.10"
 black = "^22.10.0"
 pyproject-flake8 = "^5.0.4.post1"
 mypy = "^0.982"
+pytest = "^7.1.3"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+# From here on appended by pyproject_common
+
+[tool.flake8]
+max-line-length = "130"
+# E203, E501 are incompatible with black
+extend-ignore = "E203, E501"
+exclude = """
+    .git,
+    __pycache__,
+    config,
+    stacks,
+    jmeter,
+    .venv
+"""
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | terraform
+  | \.terraform
+)/
+'''
+
+[tool.mypy]
+exclude = [
+    '.venv'
+]
